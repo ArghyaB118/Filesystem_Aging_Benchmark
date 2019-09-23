@@ -1,0 +1,248 @@
+beakerz, read.seq, ./disks/linuxdisk_fresh.raw, 15G, 1.1G, 13.1212 s,, 1.2 GB/s
+beakerz, read.seq, ./disks/linuxdisk_fresh.raw, 15G, 1.1G, 13.0654 s,, 1.2 GB/s
+beakerz, read.seq, ./disks/linuxdisk_fresh.raw, 15G, 1.1G, 13.5157 s,, 1.2 GB/s
+beakerz, read.seq, ./disks/linuxdisk_fresh.raw, 15G, 1.1G, 12.6993 s,, 1.3 GB/s
+beakerz, read.seq, ./disks/linuxdisk_fresh.raw, 15G, 1.1G, 12.5357 s,, 1.3 GB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 75.7218 s,, 213 MB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 26.1862 s,, 615 MB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 19.4075 s,, 830 MB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 19.9401 s,, 808 MB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 23.342 s,, 690 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aged.raw, 15G, 6.6G, 178.275 s,, 90.3 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aged.raw, 15G, 6.6G, 104.71 s,, 154 MB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 8.5G, 148.155 s,, 109 MB/s
+beakerz, read.seq, ./disks/linuxdisk_unaged.raw, 15G, 8.5G, 132.531 s,, 122 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aged.raw, 15G, 6.6G, 306.515 s,, 52.5 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aged.raw, 15G, 6.6G, 155.569 s,, 104 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 4.8G, 75.2661 s,, 214 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 4.8G, 25.0204 s,, 644 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 4.8G, 22.8782 s,, 704 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 4.8G, 18.8748 s,, 853 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 4.8G, 22.0243 s,, 731 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 23.2495 s,, 693 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 20.1175 s,, 801 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 19.693 s,, 818 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 23.5343 s,, 684 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 22.4543 s,, 717 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 20.9453 s,, 769 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 40.8094 s,, 395 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 40.7723 s,, 395 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 26.503 s,, 608 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 49.6282 s,, 325 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 19.7934 s,, 814 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 38.0713 s,, 423 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 51.8869 s,, 310 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 27.0448 s,, 596 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 37.9962 s,, 424 MB/s
+### new experiment result with cp sparse and non-sparse and dd sparse, with and without dropping the cache
+
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 21.5518 s,, 747 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 23.388 s,, 689 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 33.2564 s,, 484 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 24.1521 s,, 667 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 49.213 s,, 327 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 35.9678 s,, 448 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 33.2905 s,, 484 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 22.39 s,, 719 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 39.1791 s,, 411 MB/s
+beakerz, read.seq, ./disks/linuxdisk_aging.raw, 15G, 5.1G, 51.192 s,, 315 MB/s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 65.0721 s,, 248 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 17.692 s,, 910 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m16.087s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m15.899s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 92.5777 s,, 174 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 48.1093 s,, 335 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m49.129s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m40.703s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 30.7806 s,, 523 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 53.091 s,, 303 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m39.464s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m31.230s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 48.5118 s,, 332 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 36.2436 s,, 444 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m33.814s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m40.036s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 25.4023 s,, 634 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 36.3702 s,, 443 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m49.450s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m25.628s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 40.662 s,, 396 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 44.6105 s,, 361 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m28.894s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m39.711s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 37.3981 s,, 431 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 26.0283 s,, 619 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m37.890s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m50.593s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 19.2876 s,, 835 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 41.1471 s,, 391 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m28.760s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m23.833s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 58.2779 s,, 276 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 26.0737 s,, 618 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m35.809s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m52.869s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 18.1457 s,, 888 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 33.5131 s,, 481 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m42.157s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m26.901s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 49.4576 s,, 326 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 38.8106 s,, 415 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m26.477s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m50.443s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 24.0332 s,, 670 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 37.7579 s,, 427 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m42.727s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m39.148s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 29.0634 s,, 554 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 41.7923 s,, 385 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m43.759s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m25.606s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 46.3996 s,, 347 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 37.1247 s,, 434 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m36.502s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m57.620s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 27.7695 s,, 580 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 40.4118 s,, 399 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 1m0.030s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m30.092s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 29.0491 s,, 554 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 61.9638 s,, 260 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m35.228s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m40.157s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 46.9511 s,, 343 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 22.7125 s,, 709 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m40.033s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m56.588s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 19.2031 s,, 839 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 42.4862 s,, 379 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m36.962s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m24.452s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 56.9295 s,, 283 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 41.0272 s,, 393 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m32.886s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m59.302s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 21.4486 s,, 751 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 41.7228 s,, 386 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m46.462s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_unaged.raw, 15G, 4.8G, 0m37.708s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 181.696 s,, 88.6 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 20.1704 s,, 799 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m26.503s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 1m9.885s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 54.4714 s,, 296 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 52.5136 s,, 307 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m59.561s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m31.490s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 46.6066 s,, 346 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 65.9087 s,, 244 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m39.668s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m54.986s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 39.1349 s,, 412 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 43.6599 s,, 369 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 1m1.454s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m30.762s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 43.9714 s,, 366 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 46.3005 s,, 348 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m30.524s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 1m2.921s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 45.1866 s,, 356 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 47.3677 s,, 340 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m53.588s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m33.909s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 35.7963 s,, 450 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 51.6687 s,, 312 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m31.195s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 1m0.504s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 43.2223 s,, 373 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 42.8856 s,, 376 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 1m0.057s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m34.887s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 37.8514 s,, 426 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 64.6731 s,, 249 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m29.908s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m49.629s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 59.2401 s,, 272 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 41.9952 s,, 384 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m48.956s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m32.873s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 30.1854 s,, 534 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 42.2631 s,, 381 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m34.793s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m34.951s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 48.7818 s,, 330 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 40.6769 s,, 396 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m44.840s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m42.673s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 30.2658 s,, 532 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 47.9509 s,, 336 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m40.054s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m39.789s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 66.6787 s,, 242 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 46.3507 s,, 347 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m51.057s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m31.641s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 32.6148 s,, 494 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 53.9962 s,, 298 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m33.294s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m57.083s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 53.4592 s,, 301 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 43.6482 s,, 369 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m56.460s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m35.521s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 38.2968 s,, 421 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 61.3803 s,, 262 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m31.998s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m45.719s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 52.2428 s,, 308 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 42.236 s,, 381 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m58.130s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m34.894s
+before dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 41.3388 s,, 390 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 67.2357 s,, 240 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m31.051s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m45.146s
+after dropping cache
+beakerz, read.seq.dd.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 63.3496 s,, 254 MB/s
+beakerz, read.seq.dd.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 47.9286 s,, 336 MB/s
+beakerz, read.seq.cp.non.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m51.500s
+beakerz, read.seq.cp.sparse, ./disks/linuxdisk_aged.raw, 15G, 5.1G, 0m34.971s
