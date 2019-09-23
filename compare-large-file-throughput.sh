@@ -69,12 +69,12 @@ do
 	    SEC=`tail -n 1 /tmp/${outfile}.csv | awk '{print $6 " " $7}'`
 	    THRU=`tail -n 1 /tmp/${outfile}.csv | awk '{print $8 " " $9}'`
 	    echo "$HOST, read.seq.dd.non.sparse, $fname, $WHOLE_SIZE, $SPARSE_SIZE, $SEC, $THRU" >> ${outfile}.csv
-	    time (cp --sparse=never $fname /dev/null) >> /tmp/${outfile}.csv 2>&1
-	    SEC=`tail -n 3 /tmp/output.csv | awk 'FNR == 1 {print $2}'`
-	    echo "$HOST, read.seq.cp.non.sparse, $fname, $WHOLE_SIZE, $SPARSE_SIZE, $SEC" >> ${outfile}.csv
-	    time (cp --sparse=always $fname /dev/null) >> /tmp/${outfile}.csv 2>&1
-	    SEC=`tail -n 3 /tmp/output.csv | awk 'FNR == 1 {print $2}'`
-	    echo "$HOST, read.seq.cp.sparse, $fname, $WHOLE_SIZE, $SPARSE_SIZE, $SEC" >> ${outfile}.csv
+	    #time (cp --sparse=never $fname /dev/null) >> /tmp/${outfile}.csv 2>&1
+	    #SEC=`tail -n 3 /tmp/output.csv | awk 'FNR == 1 {print $2}'`
+	    #echo "$HOST, read.seq.cp.non.sparse, $fname, $WHOLE_SIZE, $SPARSE_SIZE, $SEC" >> ${outfile}.csv
+	    #time (cp --sparse=always $fname /dev/null) >> /tmp/${outfile}.csv 2>&1
+	    #SEC=`tail -n 3 /tmp/output.csv | awk 'FNR == 1 {print $2}'`
+	    #echo "$HOST, read.seq.cp.sparse, $fname, $WHOLE_SIZE, $SPARSE_SIZE, $SEC" >> ${outfile}.csv
 	}
 	
 	echo "before dropping cache" >> ${RESULTS_FILE}.csv
