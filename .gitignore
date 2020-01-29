@@ -1,4 +1,4 @@
-./disks/*
+disks/*
 Git-Benchmark
-./linux
+linux
 ftfs-southbound.raw

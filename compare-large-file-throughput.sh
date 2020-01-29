@@ -6,7 +6,7 @@ IO_SIZE=4096
 RESULTS_FILE="output"
 rm -f /tmp/${RESULTS_FILE}.csv
 
-for i in {1..10} 
+for i in {1..2} 
 do
 	echo "$i=================================="	
 	#########################################
