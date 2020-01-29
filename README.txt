@@ -13,6 +13,9 @@ $ sudo ./post_aging.sh
 
 -------------------------
 #added report as submodule
+#for adding submodules
+$ git submodule add ghttps://git.overleaf.com/5e29e0067162cd00015723f3 doc/
+$ cat .gitmodules //to check
 #for submodules pull
 $ git submodule update --init --recursive
 #for submodules push
