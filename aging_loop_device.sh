@@ -82,12 +82,12 @@ losetup -d $loop_dev
 ./sequential_read_throughput.sh $diskName
 for i in {1..10}
 do
-num_of_pulls=$(($i*1000))
+num_of_pulls=$(($i*100))
 losetup $loop_dev $diskName
 if [ "$2" == "ext4" ]; then
     mkfs.ext4 -F $loop_dev
 elif [ "$2" == "btrfs" ]; then
-    mkfs.btrfs -F $loop_dev
+    mkfs.btrfs -f $loop_dev
 elif [ "$2" == "xfs" ]; then
     mkfs.xfs -f $loop_dev
 elif [ "$2" == "f2fs" ]; then
