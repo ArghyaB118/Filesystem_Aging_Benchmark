@@ -1,0 +1,66 @@
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.4G, 45.176 s,, 357 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.4G, 42.7726 s,, 377 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.4G, 43.4985 s,, 370 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.4G, 42.9809 s,, 375 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.8G, 46.3709 s,, 347 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.8G, 46.0807 s,, 350 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.8G, 47.3647 s,, 340 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.8G, 47.0808 s,, 342 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.8G, 50.23 s,, 321 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.8G, 49.3554 s,, 326 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.8G, 50.8491 s,, 317 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.8G, 49.2221 s,, 327 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.9G, 49.4884 s,, 325 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.9G, 48.6888 s,, 331 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.9G, 49.9313 s,, 323 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.9G, 49.3221 s,, 327 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.9G, 51.1038 s,, 315 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.9G, 51.8969 s,, 310 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 4.9G, 54.1234 s,, 298 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 4.9G, 55.9299 s,, 288 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.0G, 53.1715 s,, 303 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.0G, 56.0715 s,, 287 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.0G, 59.3319 s,, 271 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.0G, 59.8962 s,, 269 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.0G, 57.0617 s,, 282 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.0G, 57.0631 s,, 282 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.0G, 63.1969 s,, 255 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.0G, 58.8463 s,, 274 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.1G, 61.5613 s,, 262 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.1G, 58.4213 s,, 276 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.1G, 58.1731 s,, 277 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.1G, 60.8878 s,, 265 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.1G, 62.5279 s,, 258 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.1G, 58.2963 s,, 276 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.1G, 63.7227 s,, 253 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.1G, 65.7624 s,, 245 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.1G, 64.0528 s,, 251 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.1G, 63.7626 s,, 253 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.1G, 63.218 s,, 255 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.1G, 66.5457 s,, 242 MB/s
+before dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.2G, 34.3052 s,, 469 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.2G, 34.8561 s,, 462 MB/s
+after dropping cache
+bunsen16.telenet.unc.edu, read.seq.dd.sparse, linuxdisk.raw, 15G, 5.2G, 37.9168 s,, 425 MB/s
+bunsen16.telenet.unc.edu, read.seq.dd.non.sparse, linuxdisk.raw, 15G, 5.2G, 36.0476 s,, 447 MB/s

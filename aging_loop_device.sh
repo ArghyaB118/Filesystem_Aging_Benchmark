@@ -53,6 +53,8 @@ elif [ "$1" == "f2fs" ]; then
     mkfs.f2fs $sb_dev &&
     mount -t f2fs $sb_dev $mntpnt &&
     chown -R $user_owner $mntpnt
+elif [ "$1" == "betrfs" ]; then
+    /home/betrfs/betrfs-private/benchmarks/setup-ftfs.sh
 fi
 rm output.csv && touch output.csv
 #[ ! -e "copy_sparse" ] && gcc copy_sparse.c -o copy_sparse
@@ -82,7 +84,7 @@ losetup -d $loop_dev
 ./sequential_read_throughput.sh $diskName
 for i in {1..10}
 do
-num_of_pulls=$(($i*100))
+num_of_pulls=$(($i*500))
 losetup $loop_dev $diskName
 if [ "$2" == "ext4" ]; then
     mkfs.ext4 -F $loop_dev
@@ -98,10 +100,8 @@ mkdir -p ${vm_mnt}/root/
 cp -R linux ${vm_mnt}/root/
 touch ${vm_mnt}/root/out
 [ -d "${vm_mnt}/root/linux2" ] && rm -r ${vm_mnt}/root/linux2
-python git_benchmark.py ${vm_mnt}/root/linux ${vm_mnt}/root/linux2 ${vm_mnt}/root/out $num_of_pulls $num_of_pulls df -h
+python git_benchmark.py grep git_gc_off ${vm_mnt}/root/linux ${vm_mnt}/root/linux2 ${vm_mnt}/root/linux3 ${vm_mnt}/root/out $num_of_pulls $num_of_pulls df -h
 umount $vm_mnt
 losetup -d $loop_dev
 ./sequential_read_throughput.sh $diskName
 done
-#Issue 1: 'stat -f -c %T mnt/' gives 'ext2/ext3', not 'ext4'
-#Issue 2: get the sync working
