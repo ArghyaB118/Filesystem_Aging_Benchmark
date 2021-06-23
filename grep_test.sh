@@ -13,12 +13,19 @@ AGED_BLKDEV=$2
 UNAGED_PATH=$3
 UNAGED_BLKDEV=$4
 FS_TYPE=$5
+AGED_STRIPPED=`echo $AGED_BLKDEV | sudo sed -e "s/[0-9]//"`
+UNAGED_STRIPPED=`echo $UNAGED_BLKDEV | sudo sed -e "s/[0-9]//"`
+
 case $FS_TYPE in
 	ext4)
 		# remount aged and time a recursive grep
 		umount $AGED_PATH &>> log.txt
 		mount -t ext4 $AGED_BLKDEV $AGED_PATH &>> log.txt
+		blktrace -a read -d $AGED_STRIPPED -o ${FS_TYPE}_aged &
+		BLKPID_AGED="$(pidof -s blktrace)"
 		AGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $AGED_PATH) 2>&1)"
+		kill -s 15 $BLKPID_AGED
+		layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
 		SIZE="$(du -s $AGED_PATH | awk '{print $1}')"
 		# create a new ext4 filesystem, mount it, time a recursive grep and dismount it
 		mkfs.ext4 -f $UNAGED_BLKDEV &>> log.txt
@@ -26,10 +33,15 @@ case $FS_TYPE in
 		cp -a $AGED_PATH/* $UNAGED_PATH
 		umount $UNAGED_PATH &>> log.txt
 		mount -t ext4 $UNAGED_BLKDEV $UNAGED_PATH
+		blktrace -a read -d $UNAGED_STRIPPED -o ${FS_TYPE}_unaged &
+		BLKPID_UNAGED="$(pidof -s blktrace)"
 		UNAGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $UNAGED_PATH) 2>&1)"
+		kill -s 15 $BLKPID_UNAGED
+		layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
 		umount $UNAGED_PATH &>> log.txt
 		# return the size and times
-		echo "$SIZE $AGED $UNAGED"
+		echo "$SIZE $AGED $UNAGED $layout_score_aged $layout_score_unaged"
+		rm -r *.blktrace*
 		;;
 	f2fs)
 		# remount aged and time a recursive grep

@@ -51,7 +51,7 @@ required files: git_benchmark.py && grep_test.sh
 9. sudo mkdir /mnt/aged/linux2
 10. sudo mount -t ext4 /dev/sdb2 /mnt/unaged && sudo rm -r /mnt/unaged/* && sudo umount /mnt/unaged
 	a. sudo zfs mount -O datastore/files && sudo rm -r /mnt/unaged/* && sudo umount /mnt/unaged
-11a. sudo python git_benchmark.py grep git_gc_off /mnt/aged/linux /mnt/aged/linux3 /mnt/aged/linux2 output.txt 10000 100 ./grep_test.sh /mnt/aged /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
+11a. sudo python git_benchmark.py grep git_gc_off /mnt/aged/linux /mnt/aged/linux2 /mnt/aged/linux3 output.txt 10000 100 ./grep_test.sh /mnt/aged /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
 11b. sudo python git_benchmark.py full_disk_grep git_gc_off /mnt/aged/linux /mnt/aged/linux3 /mnt/aged/linux2 output.txt 10000 100 ./grep_test_full_disk.sh /mnt/aged/linux /dev/sdb1 /mnt/aged/linux3 /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
 12. sudo du -sh /mnt/aged [to see size of directory, first mount]
 
@@ -70,8 +70,8 @@ $ vim betrfs-private/ftfs/.mkinclude [KDIR=3.11.10-ftfs MOD_KERN_SOURCE=$(PWD)/.
 $ vim betrfs-private/simplefs/.mkinclude [KDIR=$(shell uname -r) MOD_KERN_SOURCE=/lib/modules/$(KDIR)/build]
 $ cd betrfs-private/linux-3.11.10/
 $ sudo cp ../qemu-utils/kvm-config .config
-sudo chown betrfs:betrfs include/ -R
-sudo chown betrfs:betrfs scripts/ -R
+$ sudo chown betrfs:betrfs include/ -R
+$ sudo chown betrfs:betrfs scripts/ -R
 $ sudo make oldconfig && sudo make prepare && sudo make scripts
 $ nproc
 $ sudo make -j 4
@@ -114,6 +114,13 @@ Impose f2fs on the disks once before the experiment using '-f' flag
 ------------ to delete lines with the word 'this' from 'myfile.txt'------------
 $ sed -i '/this/d' myfile.txt
 ------------ How to deal with bad boy 'zfs' ------------
+#https://blog.iqonda.net/ubuntu-on-a-zfs-root-file-system-for-ubuntu-14-04/
+sudo -i
+apt-add-repository --yes ppa:zfs-native/stable
+apt-get update
+apt-get install debootstrap ubuntu-zfs
+modprobe zfs
+
 Download zfs and spl packages as tar file
 scp them to whereever you need
 tar -xvf spl-***.tar
@@ -127,3 +134,8 @@ sudo zpool create new-pool /dev/sdb
 sudo zpool status
 sudo zpool destroy new-pool
 Every time before using zfs, destroy the zpool, and get ext4 on that block device
+
+
+
+------------ How to check if ssd or hdd ------------
+$ cat /sys/block/sda/queue/rotational

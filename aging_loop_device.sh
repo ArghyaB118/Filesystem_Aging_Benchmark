@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -x
 #"mntpnt=mnt" and "vm_mnt=$mntpnt/vm_mnt", "loop_dev=/dev/loop1" and "sb_dev=/dev/sdb" for read script
 #these are coming from fs-info.sh
 #files reqd: aging_experiment_final.sh, copy_sparse.c, git_benchmark.py, sequential_read_thoughput.sh
@@ -59,7 +59,7 @@ fi
 rm output.csv && touch output.csv
 #[ ! -e "copy_sparse" ] && gcc copy_sparse.c -o copy_sparse
 #creating the disk that is to be mounted
-diskName="linuxdisk.raw"
+diskName=$mntpnt/linuxdisk.raw #diskName="linuxdisk.raw"
 [ -e $diskName ] && rm -rf $diskName
 mkdir -p $vm_mnt
 truncate -s 15g $diskName
@@ -81,6 +81,10 @@ cp -R linux ${vm_mnt}/root/
 touch ${vm_mnt}/root/out
 umount $vm_mnt
 losetup -d $loop_dev
+
+#umount $mntpnt
+#mount -t ext4 $sb_dev $mntpnt 
+
 ./sequential_read_throughput.sh $diskName
 for i in {1..10}
 do
@@ -103,5 +107,9 @@ touch ${vm_mnt}/root/out
 python git_benchmark.py grep git_gc_off ${vm_mnt}/root/linux ${vm_mnt}/root/linux2 ${vm_mnt}/root/linux3 ${vm_mnt}/root/out $num_of_pulls $num_of_pulls df -h
 umount $vm_mnt
 losetup -d $loop_dev
+
+#umount $mntpnt
+#mount -t ext4 $sb_dev $mntpnt 
+
 ./sequential_read_throughput.sh $diskName
 done

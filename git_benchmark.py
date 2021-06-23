@@ -201,7 +201,7 @@ for pull in range(0, total_pulls + 1):
     # run the test_script
     if pull % pulls_per_test == 0:
         output = subprocess.check_output(shlex.split(test_script)).strip()
-        output_line = "{} {}\n".format(pull, output)
+        output_line = "{} {}\n".format(pull, output[output.rfind('\n')+1:])
         output_file.write(output_line)
         sys.stdout.write("\r{}".format(' ' * 80))
         sys.stdout.write("\r{}".format(output_line))
