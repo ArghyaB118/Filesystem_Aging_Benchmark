@@ -47,8 +47,8 @@ case "$fs_type" in
 
 	ftfs)
 		set -x
-		umount $mntpnt
-		mount -t ftfs -o max=$circle_size,sb_fstype=sfs,d_dev=$dummy_dev,is_rotational=$is_rotational $partition $mntpnt
+		/home/betrfs/betrfs-private/benchmarks/cleanup-fs.sh
+		/home/betrfs/betrfs-private/benchmarks/mount-ftfs.sh
 	#	umount $mntpnt 
 	#	rmmod $module
 	#	losetup -d /dev/loop0

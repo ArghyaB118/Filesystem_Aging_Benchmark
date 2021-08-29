@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# grep_test.sh
+# grep_test_warm_cache.sh
 ################################################################################
 # performs aged and unaged grep tests on ext4
 #
@@ -47,13 +47,13 @@ case $FS_TYPE in
 		;;
 	f2fs)
 		# remount aged and time a recursive grep
-		umount $AGED_PATH &>> log.txt
-		mount -t f2fs $AGED_BLKDEV $AGED_PATH &>> log.txt
-		blktrace -a read -d $AGED_STRIPPED -o ${FS_TYPE}_aged &
-		BLKPID_AGED="$(pidof -s blktrace)"
+		#umount $AGED_PATH &>> log.txt
+		#mount -t f2fs $AGED_BLKDEV $AGED_PATH &>> log.txt
+		#blktrace -a read -d $AGED_STRIPPED -o ${FS_TYPE}_aged &
+		#BLKPID_AGED="$(pidof -s blktrace)"
 		AGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $AGED_PATH) 2>&1)"
-		if pgrep blktrace; then pkill blktrace; fi
-		layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
+		#if pgrep blktrace; then pkill blktrace; fi
+		#layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
 		SIZE="$(du -s $AGED_PATH | awk '{print $1}')"
 		# create a new ext4 filesystem, mount it, time a recursive grep and dismount it
 		mkfs.f2fs $UNAGED_BLKDEV &>> log.txt
@@ -61,15 +61,15 @@ case $FS_TYPE in
 		cp -a $AGED_PATH/* $UNAGED_PATH
 		umount $UNAGED_PATH &>> log.txt
 		mount -t f2fs $UNAGED_BLKDEV $UNAGED_PATH
-		blktrace -a read -d $UNAGED_STRIPPED -o ${FS_TYPE}_unaged &
-		BLKPID_UNAGED="$(pidof -s blktrace)"
+		#blktrace -a read -d $UNAGED_STRIPPED -o ${FS_TYPE}_unaged &
+		#BLKPID_UNAGED="$(pidof -s blktrace)"
 		UNAGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $UNAGED_PATH) 2>&1)"
-		if pgrep blktrace; then pkill blktrace; fi
-		layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
+		#if pgrep blktrace; then pkill blktrace; fi
+		#layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
 		umount $UNAGED_PATH &>> log.txt
 		# return the size and times
-		echo "$SIZE $AGED $UNAGED $layout_score_aged $layout_score_unaged"
-		rm -r *.blktrace*
+		echo "$SIZE $AGED $UNAGED"
+		#rm -r *.blktrace*
 		;;
 	btrfs)
 		# remount aged and time a recursive grep
@@ -127,15 +127,15 @@ case $FS_TYPE in
 		;;
 	zfs)
 		# remount aged and time a recursive grep
-		zfs umount $AGED_PATH &>> log.txt
-		zpool export agedstore
-		zpool import agedstore
-		zfs mount -a
-		blktrace -a read -d $AGED_STRIPPED -o ${FS_TYPE}_aged &
-		BLKPID_AGED="$(pidof -s blktrace)"
+		#zfs umount $AGED_PATH &>> log.txt
+		#zpool export agedstore
+		#zpool import agedstore
+		#zfs mount -a
+		#blktrace -a read -d $AGED_STRIPPED -o ${FS_TYPE}_aged &
+		#BLKPID_AGED="$(pidof -s blktrace)"
 		AGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $AGED_PATH) 2>&1)"
-		if pgrep blktrace; then pkill blktrace; fi
-		layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
+		#if pgrep blktrace; then pkill blktrace; fi
+		#layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
 		SIZE="$(du -s $AGED_PATH | awk '{print $1}')"
 		# create a new ext4 filesystem, mount it, time a recursive grep and dismount it
 		modprobe zfs
@@ -147,46 +147,24 @@ case $FS_TYPE in
 		zpool export cleanstore
 		zpool import cleanstore
 		zfs mount -a
-		blktrace -a read -d $UNAGED_STRIPPED -o ${FS_TYPE}_unaged &
-		BLKPID_UNAGED="$(pidof -s blktrace)"
+		#blktrace -a read -d $UNAGED_STRIPPED -o ${FS_TYPE}_unaged &
+		#BLKPID_UNAGED="$(pidof -s blktrace)"
 		UNAGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $UNAGED_PATH) 2>&1)"
-		if pgrep blktrace; then pkill blktrace; fi
-		layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
+		#if pgrep blktrace; then pkill blktrace; fi
+		#layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
 		zfs umount $UNAGED_PATH &>> log.txt
 		zpool destroy -f cleanstore
 		# return the size and times
-		echo "$SIZE $AGED $UNAGED $layout_score_aged $layout_score_unaged"
-		rm -r *.blktrace*
+		echo "$SIZE $AGED $UNAGED"
+		#rm -r *.blktrace*
 		;;
-	ftfs_aged)
+	ftfs)
 		# remount aged and time a recursive grep
-		/home/betrfs/betrfs-private/benchmarks/cleanup-fs.sh
-		/home/betrfs/betrfs-private/benchmarks/mount-ftfs.sh
-		blktrace -a read -d $AGED_STRIPPED -o ${FS_TYPE}_aged &
-		BLKPID_AGED="$(pidof -s blktrace)"
+		umount $AGED_PATH &>> log.txt
+		mount -t ftfs -o max=128,sb_fstype=sfs,d_dev=/dev/loop0,is_rotational=1 $AGED_BLKDEV $AGED_PATH
 		AGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $AGED_PATH) 2>&1)"
-		if pgrep blktrace; then pkill blktrace; fi
-		layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
-	#	umount $AGED_PATH &>> log.txt
-	#	mount -t ftfs -o max=128,sb_fstype=sfs,d_dev=/dev/loop0,is_rotational=1 $AGED_BLKDEV $AGED_PATH
-	#	AGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $AGED_PATH) 2>&1)"
 		# return the aged time
-		echo "$AGED $layout_score_aged"
-		rm -r *.blktrace*
-		;;
-	ftfs_clean)
-		/home/betrfs/betrfs-private/benchmarks/setup-ftfs.sh
-		cp -a $AGED_PATH/* $UNAGED_PATH
-		/home/betrfs/betrfs-private/benchmarks/cleanup-fs.sh
-		/home/betrfs/betrfs-private/benchmarks/mount-ftfs.sh
-		blktrace -a read -d $UNAGED_STRIPPED -o ${FS_TYPE}_unaged &
-		BLKPID_UNAGED="$(pidof -s blktrace)"
-		UNAGED="$(TIMEFORMAT='%3R'; time (grep -r "t26EdaovJD" $UNAGED_PATH) 2>&1)"
-		if pgrep blktrace; then pkill blktrace; fi
-		layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
-		/home/betrfs/betrfs-private/benchmarks/cleanup-fs.sh
-		echo "$UNAGED $layout_score_unaged"
-		rm -r *.blktrace*
+		echo "$AGED"
 		;;
 	*)
 		echo -n "unknown fs type"

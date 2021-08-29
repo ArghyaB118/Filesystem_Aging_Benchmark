@@ -43,9 +43,10 @@ case "$fs_type" in
 
 	ftfs)
 		set -x
-		umount $mntpnt 
-		rmmod $module
-		losetup -d /dev/loop0
+		/home/betrfs/betrfs-private/benchmarks/cleanup-fs.sh
+#		umount $mntpnt 
+#		rmmod $module
+#		losetup -d /dev/loop0
 		;;
 
 	*)

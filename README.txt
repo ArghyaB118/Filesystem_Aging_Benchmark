@@ -39,7 +39,7 @@ required files: git_benchmark.py && grep_test.sh
 	d. p,n [use the start and end as 25% and press enter]
 4. sudo mkfs -t ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/sdb1
 	a. sudo mkfs.btrfs -f /dev/sdb1 [sudo mkfs.btrfs -f /dev/sdb1 -n 4096]
-	b. sudo mkfs.f2fs -f /dev/sdb1 [sudo apt-get install f2fs-tools]
+	b. sudo mkfs.f2fs /dev/sdb1 [sudo apt-get install f2fs-tools]
 	c. sudo mkfs.xfs -f /dev/sdb1
 	d1. sudo apt-get remove zfs-dkms && sudo apt-get remove spl-dkms && sudo apt-get install spl-dkms && sudo apt-get install zfs-dkms
 	d2. sudo apt-get install zfsutils && sudo zpool status && whereis zfs
@@ -136,6 +136,8 @@ sudo zpool destroy new-pool
 Every time before using zfs, destroy the zpool, and get ext4 on that block device
 
 
+------------ How to switch off look-ahead in ssd ------------
+$ sudo hdparm -A 0 /dev/sdc1
 
 ------------ How to check if ssd or hdd ------------
 $ cat /sys/block/sda/queue/rotational

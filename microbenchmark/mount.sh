@@ -41,7 +41,7 @@ case "$fs_type" in
 
 	ftfs)
 		set -x
-		/home/betrfs/betrfs-private/benchmarks/setup-ftfs.sh
+		/home/betrfs/betrfs-private/benchmarks/mount-ftfs.sh
 #		losetup $dummy_dev $DIR/$dummy_file
 #		modprobe zlib
 #		insmod $module sb_dev=$partition sb_fstype=ext4
