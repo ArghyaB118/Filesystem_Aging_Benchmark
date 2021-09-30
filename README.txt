@@ -14,6 +14,17 @@ $ sudo ./code_qemu.sh
 #back in host
 $ sudo ./post_aging.sh
 
+
+##How to check the system parameters
+```bash
+uname -r #kernel version
+sudo modinfo zfs | grep version #zfs version
+lscpu #CPU config
+cat /proc/cpuinfo
+sudo hdparm -Tt /dev/sdb #tells the buffered read speed of the hdd and ssd
+```
+
+
 -------------------------
 #added report as submodule
 #for adding submodules

@@ -28,6 +28,7 @@ case $FS_TYPE in
 		if pgrep blktrace; then pkill blktrace; fi
 		layout_score_aged=$(python3 layout_score.py ${FS_TYPE}_aged 2>&1)
 		SIZE="$(du -s $AGED_PATH | awk '{print $1}')"
+		FILE_COUNT="$(find $AGED_PATH -type f | wc -l)"
 		# create a new ext4 filesystem, mount it, time a recursive grep and dismount it
 		mkfs.ext4 -f $UNAGED_BLKDEV &>> log.txt
 		mount -t ext4 $UNAGED_BLKDEV $UNAGED_PATH &>> log.txt
@@ -42,7 +43,7 @@ case $FS_TYPE in
 		layout_score_unaged=$(python3 layout_score.py ${FS_TYPE}_unaged 2>&1)
 		umount $UNAGED_PATH &>> log.txt
 		# return the size and times
-		echo "$SIZE $AGED $UNAGED $layout_score_aged $layout_score_unaged"
+		echo "$SIZE $AGED $UNAGED $layout_score_aged $layout_score_unaged $FILE_COUNT"
 		rm -r *.blktrace*
 		;;
 	f2fs)

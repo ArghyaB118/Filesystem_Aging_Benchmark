@@ -1,0 +1,11 @@
+#!/bin/bash
+
+IO_COUNT=1000
+
+for dev_name in "/dev/sda" "/dev/sdb"
+do
+   for exponent in {0..17}
+   do 
+       sudo ./read_ssd_rand $(( (2**$exponent) * 4096 )) $IO_COUNT $dev_name
+   done
+done
