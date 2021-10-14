@@ -20,14 +20,14 @@ off_t address[]= {
 bool verbose=false;
 
 static void usage() {
-  printf("usage: ./read_ssd <segment size> <num_ios> <file name>\n");
+  printf("usage: ./read_rand <segment size> <num_ios> <file name>\n");
 }
 
 int main(int argc, char **argv)
 {
     int i=0;
     struct timespec start, end;
-    double elapsed;
+    double elapsed, bandwidth;
     int ret;
     char *buf = NULL;
     
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
       return fd;
     }
 
-    buf = malloc(seg_size);
+    buf = (char*) malloc(seg_size);
     if (buf == NULL) {
       printf("malloc failed for %d bytes\n", seg_size);
       return -1;
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
     for (i=0; i<num_ios; i++) { 
       ret = pread(fd, buf, seg_size, address[i]);
       if(ret != seg_size) {
-        printf("short read. requested %d, read %d\n", seg_size, ret);
+        printf("short read. requested %d, read %d, offset %ld\n", seg_size, ret, address[i]);
         perror("ending test early\n");
         return -1;
       }
@@ -79,10 +79,11 @@ int main(int argc, char **argv)
     close(fd);
     free(buf);
     elapsed = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+    bandwidth = seg_size/1024*num_ios/elapsed/1024;
     if(verbose) {
-      printf("segsize, num_ios, time.s\n");
+      printf("segsize, num_ios, time.s, read_bandwidth_MiBps\n");
     }
-    printf("%d, %d, %lf\n", seg_size, num_ios, elapsed);
+    printf("%d, %d, %lf, %lf\n", seg_size, num_ios, elapsed, bandwidth);
 
     return 0;
 }

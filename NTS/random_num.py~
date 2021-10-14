@@ -1,9 +1,0 @@
-import random
-
-a=range(500)
-random.shuffle(a)
-
-
-for x in a:
-    print x,","
-
