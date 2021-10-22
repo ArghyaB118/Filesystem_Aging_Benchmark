@@ -345,10 +345,11 @@ if rfs_test == True:
 # Random File Structure Test
 # creates a random directory tree, then populates it with random files of
 # increasing size, then runs a grep test
+# This is equivalent to the average file test for interfile benchmark
 
 if fs_test == True:
 
-    print("{}Running Random File Structure Test{}".format(tcolors.bold, tcolors.end))
+    print("{}Running File Structure Test{}".format(tcolors.bold, tcolors.end))
 
     # open the results file and give the column headings
     resultfile = open("{}/{}_fs_results.csv".format(test_name,test_name),'w')
@@ -359,7 +360,7 @@ if fs_test == True:
         resultfile.write(" cleaner_time cleaner_layout_score ")
     resultfile.write("\n")
 
-    file_count = fs_fs_size / 4096
+    file_count = fs_fs_size / 4096 # file count = fs_size / 4KiB
 
     if os.path.isfile('dir.txt') == False:
         dirfile = open('dir.txt','w')
