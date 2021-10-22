@@ -62,8 +62,9 @@ required files: git_benchmark.py && grep_test.sh
 9. sudo mkdir /mnt/aged/linux2
 10. sudo mount -t ext4 /dev/sdb2 /mnt/unaged && sudo rm -r /mnt/unaged/* && sudo umount /mnt/unaged
 	a. sudo zfs mount -O datastore/files && sudo rm -r /mnt/unaged/* && sudo umount /mnt/unaged
-11a. sudo python git_benchmark.py grep git_gc_off /mnt/aged/linux /mnt/aged/linux2 /mnt/aged/linux3 output.txt 10000 100 ./grep_test.sh /mnt/aged /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
-11b. sudo python git_benchmark.py full_disk_grep git_gc_off /mnt/aged/linux /mnt/aged/linux3 /mnt/aged/linux2 output.txt 10000 100 ./grep_test_full_disk.sh /mnt/aged/linux /dev/sdb1 /mnt/aged/linux3 /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
+11a. sudo python git_benchmark.py grep git_gc_off linux /mnt/aged/ output.txt 10000 100 ./grep_test.sh /mnt/aged /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
+11b. sudo python git_benchmark.py grep git_gc_off linux /mnt/aged/ output.txt 10000 100 ./grep_test_warm_cache.sh /mnt/aged ext4
+11c. sudo python git_benchmark.py full_disk_grep git_gc_off /mnt/aged/linux /mnt/aged/linux3 /mnt/aged/linux2 output.txt 10000 100 ./grep_test_full_disk.sh /mnt/aged/linux /dev/sdb1 /mnt/aged/linux3 /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
 12. sudo du -sh /mnt/aged [to see size of directory, first mount]
 
 

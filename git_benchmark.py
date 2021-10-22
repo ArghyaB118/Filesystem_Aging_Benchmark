@@ -22,7 +22,7 @@
 import subprocess
 import shlex
 import sys
-import os
+import os, signal
 import argparse
 from distutils.version import LooseVersion
 
@@ -49,13 +49,18 @@ if (LooseVersion(git_version) < LooseVersion('2.5')):
 else:
     print("Git version {} OK".format(git_version.strip()))
 
+if os.path.isdir("linux") == False:
+    print("linux repo not found")
+    print("git clone https://github.com/torvalds/linux.git")
+    subprocess.check_call(shlex.split("git clone https://github.com/torvalds/linux.git"), stdout=devnull, stderr=subprocess.STDOUT)
+
+
 # parse the arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("mode", help="purpose of the experiment")
 parser.add_argument("git_gc", help="git garbage collection mode")
 parser.add_argument("src_repo", help="source repository")
 parser.add_argument("dest", help="destination location to be aged")
-parser.add_argument("dest2", help="destination location also to be aged")
 parser.add_argument("output_file", help="file to which results are written")
 parser.add_argument("total_pulls", help="total number of pulls in the test", type=int)
 parser.add_argument("pulls_per_test", help="run the test_script every this many pulls", type=int)
@@ -67,7 +72,6 @@ mode = args.mode
 git_gc = args.git_gc
 src_repo = os.path.abspath(args.src_repo)
 dest = args.dest
-dest2 = args.dest2
 test_script = "{} {}".format(args.test_script, " ".join(args.script_params))
 output_file = open(args.output_file, 'w')
 total_pulls = args.total_pulls
@@ -79,7 +83,7 @@ output_file.write("pulls output\n")
 if (mode == "grep"):
     # prep dest repo
     repo_name = os.path.basename(os.path.normpath(src_repo))
-    dest_repo = os.path.abspath("{}/{}".format(dest, repo_name))
+    dest_repo = os.path.abspath("{}/{}2".format(dest, repo_name))
     dest_mkdir_cmd = "mkdir -p {}".format(dest_repo)
     git_init_cmd = "git init"
     print("Initializing destination repository")
@@ -99,8 +103,8 @@ elif (mode == "full_disk_grep"):
     # prep dest repos
     for i in range(0, extra_repos + 1):
         repo_name = os.path.basename(os.path.normpath("{}{}".format(src_repo, i))) 
-        dest_repo.append( os.path.abspath("{}/{}".format(dest, repo_name)) )
-        dest_repo2.append( os.path.abspath("{}/{}".format(dest2, repo_name)) )
+        dest_repo.append( os.path.abspath("{}/{}2".format(dest, repo_name)) )
+        dest_repo2.append( os.path.abspath("{}/{}3".format(dest2, repo_name)) )
         dest_mkdir_cmd = "mkdir -p {}".format(dest_repo[i])
         dest2_mkdir_cmd = "mkdir -p {}".format(dest_repo2[i])
         git_init_cmd = "git init"
