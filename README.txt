@@ -1,4 +1,5 @@
-# Project_Benchmarking
+# Project: Aging Benchmarks for Filesystems
+# Paper: ACM Transaction on Systems (TOS) --- (Coming!)
 #location:betrfs-private/benchmarks/aging_benchmarks/
 #to set up kvm in ubuntu: https://github.com/oscarlab/betrfs-private/wiki/Sample-Testing-Environment
 #check line 18 and 24 in q 
@@ -25,8 +26,13 @@ sudo hdparm -Tt /dev/sdb #tells the buffered read speed of the hdd and ssd
 ```
 
 
--------------------------
-#added report as submodule
+-------------- Git tutorial -----------
+# How to pull with local items
+$ git stash && git pull && git stash pop 
+# How to check detailed changes of a particular commit
+$ sudo git checkout <commit hash>
+
+# How to add the report as submodule
 #for adding submodules
 $ git submodule add ghttps://git.overleaf.com/5e29e0067162cd00015723f3 doc/
 $ cat .gitmodules //to check
@@ -37,17 +43,20 @@ $ cd your_submodule
 $ git checkout master
 $ git commit -a -m "commit in submodule"
 $ git push
--------------------------
+
+
+-------------------- Git Aging --------------------
 https://github.com/Gui110tine/git-full-disk/blob/master/grep_f2fs.sh
 https://github.com/Gui110tine/Full-Disk-Testing
 required files: git_benchmark.py && grep_test.sh
 1. lsblk [we need something like two block devices both of which are comparatively large]
 2. cat /sys/block/sda/queue/rotational [check which one is SSD and which one is HDD]
-3. [I've a HDD of 500 GiB as /dev/sdb so let's create /dev/sdb1 and /dev/sdb2, both 125 GiB]
+3. I've a HDD of 500GiB (/dev/sdb) and an SSD of 250GiB (/dev/sdc). I create /dev/sdb1 and /dev/sdb2 at the fag end of the disk, both 20GiB. (Similarly /dev/sdc1 and /dev/sdc2)
+
 	a. #https://www.codingame.com/playgrounds/2135/linux-filesystems-101---block-devices/partitioning-block-devices
 	b. sudo fdisk -l /dev/sdb [to see the number of sectors, start and end]
 	c. sudo fdisk /dev/sdb [initiate fdisk]
-	d. p,n [use the start and end as 25% and press enter]
+	d. p,n [use the starting block to be at the very end so that it allows '+20G' as last block]
 4. sudo mkfs -t ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/sdb1
 	a. sudo mkfs.btrfs -f /dev/sdb1 [sudo mkfs.btrfs -f /dev/sdb1 -n 4096]
 	b. sudo mkfs.f2fs /dev/sdb1 [sudo apt-get install f2fs-tools]
@@ -64,7 +73,7 @@ required files: git_benchmark.py && grep_test.sh
 	a. sudo zfs mount -O datastore/files && sudo rm -r /mnt/unaged/* && sudo umount /mnt/unaged
 11a. sudo python git_benchmark.py grep git_gc_off linux /mnt/aged/ output.txt 10000 100 ./grep_test.sh /mnt/aged /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
 11b. sudo python git_benchmark.py grep git_gc_off linux /mnt/aged/ output.txt 10000 100 ./grep_test_warm_cache.sh /mnt/aged ext4
-11c. sudo python git_benchmark.py full_disk_grep git_gc_off /mnt/aged/linux /mnt/aged/linux3 /mnt/aged/linux2 output.txt 10000 100 ./grep_test_full_disk.sh /mnt/aged/linux /dev/sdb1 /mnt/aged/linux3 /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
+11c. sudo python git_benchmark.py full_disk_grep git_gc_off linux /mnt/aged/ output.txt 10000 100 ./grep_test_full_disk.sh /mnt/aged/linux /dev/sdb1 /mnt/aged/linux3 /dev/sdb1 /mnt/unaged /dev/sdb2 ext4
 12. sudo du -sh /mnt/aged [to see size of directory, first mount]
 
 
@@ -72,7 +81,7 @@ required files: git_benchmark.py && grep_test.sh
 10. sudo cp ../dummy.dev . [also, get ext4 back on /dev/sdb1]
 
 
------------- How to deal with 'betrfs' ------------
+------------ How to build betrfs ------------
 $ git clone https://github.com/oscarlab/betrfs-private.git
 $ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 $ sudo apt-get update
@@ -98,13 +107,22 @@ $ sudo ./cmake-ft.sh
 $ cd ../filesystem && make
 $ cd ../ftfs && make
 
-
+-------------- How to build betrfs (new) -------------- 
+$ cd betrfs-private/build
+$ ./cmake-ft-debug.sh
+$ cd ../filesystem
+$ vim .mkinclude (set ``KDIR=$(shell uname -r)’’)
+$ make clean
+$ make
+$ cd ../benchmarks
+$ vim fs-info.sh (set ``repo=betrfs-private’’)
+$ exit
+$ ./setup-ftfs.sh
 
 ------------ How to do the warm cache test by changing memory ------------
 $ sudo vim /etc/default/grub [modify GRUB_CMDLINE_LINUX_DEFAULT and add mem=1024m]
 $ sudo update-grub [reboot & then check]
 $ sudo vim /proc/meminfo
-
 
 ------------ How to secure copy file from host to VM and vice versa ------------
 $ scp betrfs@bunsen16.cs.unc.edu:/home/betrfs/microbenchmarks/zfs_ssd/zfs_ssd_rlt_results.csv .
